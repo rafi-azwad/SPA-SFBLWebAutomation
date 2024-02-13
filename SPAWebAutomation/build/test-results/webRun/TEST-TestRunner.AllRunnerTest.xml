@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestRunner.AllRunnerTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2024-02-13T03:27:08" hostname="SILCHQSOFT178L" time="123.711">
+  <properties/>
+  <testcase name="runScenario[0](&quot;Login with valid data&quot;, &quot;Optional[SPA SFBL Login]&quot;)" classname="TestRunner.AllRunnerTest" time="17.416"/>
+  <testcase name="runScenario[1](&quot;Add order retailer&quot;, &quot;Optional[Order Transaction]&quot;)" classname="TestRunner.AllRunnerTest" time="15.547"/>
+  <testcase name="runScenario[2](&quot;check invoice retailer&quot;, &quot;Optional[Invoice Retailer]&quot;)" classname="TestRunner.AllRunnerTest" time="3.502"/>
+  <testcase name="runScenario[3](&quot;check invoice display&quot;, &quot;Optional[Invoice Display]&quot;)" classname="TestRunner.AllRunnerTest" time="17.02"/>
+  <testcase name="runScenario[4](&quot;check invoice display&quot;, &quot;Optional[Invoice Display]&quot;)" classname="TestRunner.AllRunnerTest" time="29.017"/>
+  <testcase name="runScenario[5](&quot;check requisition to factory&quot;, &quot;Optional[Requisition to Factory]&quot;)" classname="TestRunner.AllRunnerTest" time="7.54"/>
+  <testcase name="runScenario[6](&quot;check replacement summary sheet&quot;, &quot;Optional[Replacement Summary Sheet]&quot;)" classname="TestRunner.AllRunnerTest" time="9.201"/>
+  <testcase name="runScenario[7](&quot;check damage stock transfer for replacement&quot;, &quot;Optional[Damage Stock Transfer For Replacement]&quot;)" classname="TestRunner.AllRunnerTest" time="15.309"/>
+  <testcase name="runScenario[8](&quot;check the short products&quot;, &quot;Optional[Short Products Details]&quot;)" classname="TestRunner.AllRunnerTest" time="9.148"/>
+  <system-out><![CDATA[
+@login
+Scenario Outline: Login with valid data                   # src/test/resources/Features/01_login.feature:12
+  Given user in the login page                            # SPAStepDefinition.LoginStepDefinition.userInTheLoginPage()
+  When user enter valid 'fenitraders' and 'fenitraders25' # SPAStepDefinition.LoginStepDefinition.userEnterValidAnd(java.lang.String,java.lang.String)
+  And click login button                                  # SPAStepDefinition.LoginStepDefinition.clickLoginButton()
+Successfully login -->>>>
+  Then successfully navigate to the dashboard             # SPAStepDefinition.LoginStepDefinition.successfullyNavigateToTheDashboard()
+
+@orderRetailer
+Scenario: Add order retailer           # src/test/resources/Features/02_orderRetailer.feature:4
+  Given click on transaction option    # SPAStepDefinition.OrderRetailerStepDefinition.clickOnTransactionOption()
+  When select order retailer           # SPAStepDefinition.OrderRetailerStepDefinition.selectOrderRetailer()
+  And fill in the required information # SPAStepDefinition.OrderRetailerStepDefinition.fillInTheRequiredInformation()
+  Then save and submit the information # SPAStepDefinition.OrderRetailerStepDefinition.saveAndSubmitTheInformation()
+
+@invoiceRetailer
+Scenario: check invoice retailer     # src/test/resources/Features/03_invoiceRetailer.feature:4
+  Given click on transaction option  # SPAStepDefinition.OrderRetailerStepDefinition.clickOnTransactionOption()
+  When select invoice retailer       # SPAStepDefinition.InvoiceRetailerStepDefinition.selectInvoiceRetailer()
+  And fill delivery date and sr name # SPAStepDefinition.InvoiceRetailerStepDefinition.fillDeliveryDateAndSrName()
+  Then view the information          # SPAStepDefinition.InvoiceRetailerStepDefinition.viewTheInformation()
+
+@invoiceDisplay
+Scenario: check invoice display     # src/test/resources/Features/04_invoiceDisplay.feature:4
+  Given click on transaction option # SPAStepDefinition.OrderRetailerStepDefinition.clickOnTransactionOption()
+  When select invoice display       # SPAStepDefinition.InvoiceDisplayStepDefinition.selectInvoiceDisplay()
+  And select delivery date          # SPAStepDefinition.InvoiceDisplayStepDefinition.selectDeliveryDate()
+Invoice number is: 2402050000018
+  Then view the display information # SPAStepDefinition.InvoiceDisplayStepDefinition.viewTheDisplayInformation()
+
+@invoiceReturnFromRetailer
+Scenario: check invoice display              # src/test/resources/Features/05_invoiceReturnFromRetailer.feature:4
+  Given click on transaction option          # SPAStepDefinition.OrderRetailerStepDefinition.clickOnTransactionOption()
+  When select invoice return from retailer   # SPAStepDefinition.InvoiceReturnFromRetailerStepDefinition.selectInvoiceReturnFromRetailer()
+  And write the invoice number               # SPAStepDefinition.InvoiceReturnFromRetailerStepDefinition.writeTheInvoiceNumber()
+  And select full or partial return          # SPAStepDefinition.InvoiceReturnFromRetailerStepDefinition.selectFullOrPartialReturn()
+  And write return quantity                  # SPAStepDefinition.InvoiceReturnFromRetailerStepDefinition.writeReturnQuantity()
+  Then save the invoice return from retailer # SPAStepDefinition.InvoiceReturnFromRetailerStepDefinition.saveTheInvoiceReturnFromRetailer()
+
+@requisitionToFactory
+Scenario: check requisition to factory               # src/test/resources/Features/06_requisitionToFactory.feature:4
+  Given click on transaction option                  # SPAStepDefinition.OrderRetailerStepDefinition.clickOnTransactionOption()
+  When select requisition to factory                 # SPAStepDefinition.RequisitionToFactoryStepDefinition.selectRequisitionToFactory()
+  And select the add items                           # SPAStepDefinition.RequisitionToFactoryStepDefinition.selectTheAddItems()
+  And write how many boxes you require               # SPAStepDefinition.RequisitionToFactoryStepDefinition.writeHowManyBoxesYouRequire()
+  Then save the requisition to factory's information # SPAStepDefinition.RequisitionToFactoryStepDefinition.saveTheRequisitionToFactorySInformation()
+
+@replacementSummarySheet
+Scenario: check replacement summary sheet               # src/test/resources/Features/07_replacementSummarySheet.feature:4
+  Given click on transaction option                     # SPAStepDefinition.OrderRetailerStepDefinition.clickOnTransactionOption()
+  When select replacement summary sheet                 # SPAStepDefinition.ReplacementSummarySheetStepDefinition.selectReplacementSummarySheet()
+  And select market name                                # SPAStepDefinition.ReplacementSummarySheetStepDefinition.selectMarketName()
+  And select replacement cause                          # SPAStepDefinition.ReplacementSummarySheetStepDefinition.selectReplacementCause()
+  And add product                                       # SPAStepDefinition.ReplacementSummarySheetStepDefinition.addProduct()
+  Then save the replacement summary sheet's information # SPAStepDefinition.ReplacementSummarySheetStepDefinition.saveTheReplacementSummarySheetSInformation()
+
+@damageStockTransferForReplacement
+Scenario: check damage stock transfer for replacement               # src/test/resources/Features/08_demageStockTransferForReplacement.feature:4
+  Given click on transaction option                                 # SPAStepDefinition.OrderRetailerStepDefinition.clickOnTransactionOption()
+  When select  damage stock transfer for replacement                # SPAStepDefinition.DamageStockTransferForReplacementStepDefinition.selectDamageStockTransferForReplacement()
+  And select market name                                            # SPAStepDefinition.ReplacementSummarySheetStepDefinition.selectMarketName()
+  And add damage product                                            # SPAStepDefinition.DamageStockTransferForReplacementStepDefinition.addDamageProduct()
+  And add damage policy                                             # SPAStepDefinition.DamageStockTransferForReplacementStepDefinition.addDamagePolicy()
+  Then save the damage stock transfer for replacement's information # SPAStepDefinition.DamageStockTransferForReplacementStepDefinition.saveTheDamageStockTransferForReplacementSInformation()
+
+@shortProducts
+Scenario: check the short products                 # src/test/resources/Features/09_shortProducts.feature:4
+  Given click on transaction option                # SPAStepDefinition.OrderRetailerStepDefinition.clickOnTransactionOption()
+  When select short product                        # SPAStepDefinition.ShortProductsStepDefinition.selectShortProduct()
+  And fill the short products required information # SPAStepDefinition.ShortProductsStepDefinition.fillTheShortProductsRequiredInformation()
+  Then save the short products information         # SPAStepDefinition.ShortProductsStepDefinition.saveTheShortProductsInformation()
+]]></system-out>
+  <system-err><![CDATA[SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+Starting ChromeDriver 121.0.6167.85 (3f98d690ad7e59242ef110144c757b2ac4eef1a2-refs/branch-heads/6167@{#1539}) on port 33493
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Feb 13, 2024 9:27:14 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 121
+Feb 13, 2024 9:27:14 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$3
+WARNING: Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.7.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+</testsuite>
