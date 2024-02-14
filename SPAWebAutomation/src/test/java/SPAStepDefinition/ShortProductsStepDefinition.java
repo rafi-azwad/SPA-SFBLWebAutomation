@@ -28,8 +28,6 @@ public class ShortProductsStepDefinition {
     public void saveTheShortProductsInformation() {
         spp.saveShortProducts();
        // ScreenShotUtil.getScreenshot("short products");
-        ScreenRecorderUtil.stopRecord();
-        driver.quit();
 
     }
 }

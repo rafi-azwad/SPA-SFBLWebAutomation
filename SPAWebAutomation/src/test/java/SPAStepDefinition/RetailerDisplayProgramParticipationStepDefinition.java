@@ -1,5 +1,7 @@
 package SPAStepDefinition;
 
+import Core.ScreenRecorderUtil;
+import Core.ScreenShotUtil;
 import SearchPage.RetailerDisplayProgramParticipationPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -17,11 +19,13 @@ public class RetailerDisplayProgramParticipationStepDefinition {
 
     @And("fill the required information")
     public void fillTheRequiredInformation()  {
-       rdpp.displayProgramName();
-       //rdpp.displayParticipationDetails();
+       //rdpp.displayProgramName();
+       rdpp.displayParticipationDetails();
     }
 
     @Then("save the information")
     public void saveTheInformation() {
+        //ScreenShotUtil.getScreenshot("retailer program for participation");
+        ScreenRecorderUtil.stopRecord();
     }
 }

@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
         monochrome = true,
         dryRun = false,
         plugin = {
-                "pretty", "html:build/reports/shortProductsFeature.html"
+                "pretty", "html:build/reports/retailerDisplayProgramParticipationFeature.html"
         })
 
 @Test

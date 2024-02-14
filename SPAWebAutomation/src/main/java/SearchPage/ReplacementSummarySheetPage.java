@@ -53,7 +53,7 @@ public class ReplacementSummarySheetPage {
         driver.findElement(By.xpath("//input[@name='ProductCode']")).sendKeys(Keys.F9);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        WebElement item = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[contains(text(),'Radhuni Borhani Masala')]")));
+        WebElement item = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[contains(text(),'Radhuni Kasundi')]")));
         JavascriptExecutor js = (JavascriptExecutor)driver; //org.openqa.selenium.ElementClickInterceptedException
         js.executeScript("arguments[0].click()", item);
 

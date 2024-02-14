@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestRunner.AllRunnerTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2024-02-13T03:27:08" hostname="SILCHQSOFT178L" time="123.711">
+<testsuite name="TestRunner.AllRunnerTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2024-02-14T10:43:33" hostname="SILCHQSOFT178L" time="100.423">
   <properties/>
-  <testcase name="runScenario[0](&quot;Login with valid data&quot;, &quot;Optional[SPA SFBL Login]&quot;)" classname="TestRunner.AllRunnerTest" time="17.416"/>
-  <testcase name="runScenario[1](&quot;Add order retailer&quot;, &quot;Optional[Order Transaction]&quot;)" classname="TestRunner.AllRunnerTest" time="15.547"/>
-  <testcase name="runScenario[2](&quot;check invoice retailer&quot;, &quot;Optional[Invoice Retailer]&quot;)" classname="TestRunner.AllRunnerTest" time="3.502"/>
-  <testcase name="runScenario[3](&quot;check invoice display&quot;, &quot;Optional[Invoice Display]&quot;)" classname="TestRunner.AllRunnerTest" time="17.02"/>
-  <testcase name="runScenario[4](&quot;check invoice display&quot;, &quot;Optional[Invoice Display]&quot;)" classname="TestRunner.AllRunnerTest" time="29.017"/>
-  <testcase name="runScenario[5](&quot;check requisition to factory&quot;, &quot;Optional[Requisition to Factory]&quot;)" classname="TestRunner.AllRunnerTest" time="7.54"/>
-  <testcase name="runScenario[6](&quot;check replacement summary sheet&quot;, &quot;Optional[Replacement Summary Sheet]&quot;)" classname="TestRunner.AllRunnerTest" time="9.201"/>
-  <testcase name="runScenario[7](&quot;check damage stock transfer for replacement&quot;, &quot;Optional[Damage Stock Transfer For Replacement]&quot;)" classname="TestRunner.AllRunnerTest" time="15.309"/>
-  <testcase name="runScenario[8](&quot;check the short products&quot;, &quot;Optional[Short Products Details]&quot;)" classname="TestRunner.AllRunnerTest" time="9.148"/>
+  <testcase name="runScenario[0](&quot;Login with valid data&quot;, &quot;Optional[SPA SFBL Login]&quot;)" classname="TestRunner.AllRunnerTest" time="8.353"/>
+  <testcase name="runScenario[1](&quot;Add order retailer&quot;, &quot;Optional[Order Transaction]&quot;)" classname="TestRunner.AllRunnerTest" time="13.241"/>
+  <testcase name="runScenario[2](&quot;check invoice retailer&quot;, &quot;Optional[Invoice Retailer]&quot;)" classname="TestRunner.AllRunnerTest" time="2.283"/>
+  <testcase name="runScenario[3](&quot;check invoice display&quot;, &quot;Optional[Invoice Display]&quot;)" classname="TestRunner.AllRunnerTest" time="8.952"/>
+  <testcase name="runScenario[4](&quot;check invoice display&quot;, &quot;Optional[Invoice Display]&quot;)" classname="TestRunner.AllRunnerTest" time="27.974"/>
+  <testcase name="runScenario[5](&quot;check requisition to factory&quot;, &quot;Optional[Requisition to Factory]&quot;)" classname="TestRunner.AllRunnerTest" time="6.908"/>
+  <testcase name="runScenario[6](&quot;check replacement summary sheet&quot;, &quot;Optional[Replacement Summary Sheet]&quot;)" classname="TestRunner.AllRunnerTest" time="7.862"/>
+  <testcase name="runScenario[7](&quot;check damage stock transfer for replacement&quot;, &quot;Optional[Damage Stock Transfer For Replacement]&quot;)" classname="TestRunner.AllRunnerTest" time="13.202"/>
+  <testcase name="runScenario[8](&quot;check the short products&quot;, &quot;Optional[Short Products Details]&quot;)" classname="TestRunner.AllRunnerTest" time="4.926"/>
+  <testcase name="runScenario[9](&quot;check Retailer Display Program Participation&quot;, &quot;Optional[Retailer Display Program Participation Details]&quot;)" classname="TestRunner.AllRunnerTest" time="6.717"/>
   <system-out><![CDATA[
 @login
 Scenario Outline: Login with valid data                   # src/test/resources/Features/01_login.feature:12
@@ -38,7 +39,7 @@ Scenario: check invoice display     # src/test/resources/Features/04_invoiceDisp
   Given click on transaction option # SPAStepDefinition.OrderRetailerStepDefinition.clickOnTransactionOption()
   When select invoice display       # SPAStepDefinition.InvoiceDisplayStepDefinition.selectInvoiceDisplay()
   And select delivery date          # SPAStepDefinition.InvoiceDisplayStepDefinition.selectDeliveryDate()
-Invoice number is: 2402050000018
+Invoice number is: 2402050000020
   Then view the display information # SPAStepDefinition.InvoiceDisplayStepDefinition.viewTheDisplayInformation()
 
 @invoiceReturnFromRetailer
@@ -82,17 +83,24 @@ Scenario: check the short products                 # src/test/resources/Features
   When select short product                        # SPAStepDefinition.ShortProductsStepDefinition.selectShortProduct()
   And fill the short products required information # SPAStepDefinition.ShortProductsStepDefinition.fillTheShortProductsRequiredInformation()
   Then save the short products information         # SPAStepDefinition.ShortProductsStepDefinition.saveTheShortProductsInformation()
+
+@retailerDisplayProgramParticipation
+Scenario: check Retailer Display Program Participation # src/test/resources/Features/10_retailerDisplayProgramParticipation.feature:4
+  Given click on transaction option                    # SPAStepDefinition.OrderRetailerStepDefinition.clickOnTransactionOption()
+  When select retailer display program participation   # SPAStepDefinition.RetailerDisplayProgramParticipationStepDefinition.selectRetailerDisplayProgramParticipation()
+  And fill the required information                    # SPAStepDefinition.RetailerDisplayProgramParticipationStepDefinition.fillTheRequiredInformation()
+  Then save the information                            # SPAStepDefinition.RetailerDisplayProgramParticipationStepDefinition.saveTheInformation()
 ]]></system-out>
   <system-err><![CDATA[SLF4J: No SLF4J providers were found.
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
-Starting ChromeDriver 121.0.6167.85 (3f98d690ad7e59242ef110144c757b2ac4eef1a2-refs/branch-heads/6167@{#1539}) on port 33493
+Starting ChromeDriver 121.0.6167.85 (3f98d690ad7e59242ef110144c757b2ac4eef1a2-refs/branch-heads/6167@{#1539}) on port 12971
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-Feb 13, 2024 9:27:14 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Feb 14, 2024 4:43:36 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 121
-Feb 13, 2024 9:27:14 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$3
+Feb 14, 2024 4:43:36 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$3
 WARNING: Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.7.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
 </testsuite>

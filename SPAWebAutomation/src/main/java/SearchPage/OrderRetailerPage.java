@@ -13,7 +13,7 @@ public class OrderRetailerPage {
     WebDriver driver;
 
 
-    public static String deliveryDate ="14";
+    public static String deliveryDate ="15";
     public static String srName ="Md. Mamun Shekh | 00004195";
     public static String orderQty ="3";
     public OrderRetailerPage (WebDriver driver){
@@ -36,7 +36,6 @@ public class OrderRetailerPage {
 
     public void selectRequiredInformation() throws InterruptedException {
         driver.findElement(By.xpath("//input[@id='OrderDate']")).click();
-        //driver.findElement(By.xpath("//a[contains(text(),"+deliveryDate+")]")).click(); //delivery date
         driver.findElement(By.xpath("//a[text()="+deliveryDate+"]")).click(); //delivery date
 
         Select orderType = new Select(driver.findElement(By.xpath("//select[@id='InvoiceType']")));

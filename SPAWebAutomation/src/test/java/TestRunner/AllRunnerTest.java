@@ -6,10 +6,11 @@ import org.testng.annotations.Test;
 
 @CucumberOptions(
         features = {"src/test/resources/Features"},
+
         tags = "@login or @orderRetailer or @invoiceRetailer or @invoiceDisplay or " +
                 "@invoiceReturnFromRetailer or @requisitionToFactory or @replacementSummarySheet or " +
-                "@damageStockTransferForReplacement or @shortProducts",
-        //tags = "@retailerDisplayProgramParticipation",
+                "@damageStockTransferForReplacement or @shortProducts or @retailerDisplayProgramParticipation",
+
         glue = {"SPAStepDefinition"},
         monochrome = true,
         dryRun = false,
